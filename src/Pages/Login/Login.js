@@ -1,10 +1,11 @@
 import React from "react";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="grid grid-cols-12 my-24 md:gap-5 justify-center items-center">
+    <div className="grid grid-cols-12 min-h-screen md:gap-5 justify-center items-center">
       <div className="col-span-12 md:col-span-4">
         <h1 className="text-5xl font-bold text-center md:text-end">
           Let's Play The Life Changing Game
@@ -48,9 +49,12 @@ const Login = () => {
                   className="input input-bordered"
                 />
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
+                  <Link
+                    to="/register"
+                    className="label-text-alt link link-hover text-blue-600"
+                  >
+                    Don't have an account? SignUp
+                  </Link>
                 </label>
               </div>
               <div className="form-control mt-6">
