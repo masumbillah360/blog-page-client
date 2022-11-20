@@ -19,8 +19,8 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/hombeblog/${params.id}`),
       },
-      { path: "allblogs", element: <AllBlogs /> },
-      { path: "addblogs", element: <AddBlogs /> },
+      { path: "/allblogs", element: <AllBlogs /> },
+      { path: "/addblogs", element: <AddBlogs /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <SignUp /> },
     ],

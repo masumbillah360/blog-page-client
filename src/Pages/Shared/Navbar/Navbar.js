@@ -13,6 +13,9 @@ const Navbar = () => {
       <li>
         <Link to="/register">SignUp</Link>
       </li>
+      <li>
+        <Link to="/addblogs">Add Blogs</Link>
+      </li>
     </>
   );
   return (
