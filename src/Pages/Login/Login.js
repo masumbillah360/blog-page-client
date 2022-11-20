@@ -1,9 +1,18 @@
-import React from "react";
+import { GoogleAuthProvider } from "firebase/auth";
+import React, { useContext } from "react";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
+  const provider = new GoogleAuthProvider();
+  const { handleGLogin } = useContext(AuthContext);
+  const handleLogin = () => {
+    handleGLogin(provider)
+      .then((result) => console.log(result.user))
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="grid grid-cols-12 min-h-screen md:gap-5 justify-center items-center">
       <div className="col-span-12 md:col-span-4">
@@ -18,7 +27,10 @@ const Login = () => {
         <div className="card w-full shadow-2xl bg-base-100">
           <div className="card-body w-full">
             <div className="flex justify-around w-full">
-              <button className="btn rounded-lg text-4xl btn-primary my-1">
+              <button
+                onClick={handleLogin}
+                className="btn rounded-lg text-4xl btn-primary my-1"
+              >
                 <FcGoogle></FcGoogle>{" "}
               </button>
               <button className="btn rounded-lg text-4xl btn-primary my-1">
