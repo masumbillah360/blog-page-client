@@ -25,11 +25,13 @@ const BlogDetails = () => {
           <div className="w-full text-center">
             <textarea
               className="textarea textarea-primary w-4/5 md:w-full px-1"
-              placeholder="Bio"
+              rows="4"
+              placeholder="Add comments here..."
             />
             <div className="my-2 text-center md:text-end">
-                
-            <button className="btn btn-primary">Add</button>
+              <button className="md:btn-primary md:btn btn btn-sm btn-primary">
+                Add Comment
+              </button>
             </div>
           </div>
           <div className=" w-full grid grid-cols-1 gap-4 max-h-screen overflow-auto">

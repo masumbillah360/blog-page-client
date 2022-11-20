@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import { Link } from "react-router-dom";
 import SignleBlog from "./SignleBlog";
 
 const HomePage = () => {
@@ -14,10 +15,12 @@ const HomePage = () => {
   return (
     <div>
       {home.map((blog, num) => (
-        <SignleBlog key={blog.price} blog={blog} num={num} />
+        <SignleBlog key={blog._id} blog={blog} num={num} />
       ))}
       <div className="text-center">
-        <button className="btn btn-primary mb-10">See More</button>
+        <Link to="/allblogs" className="btn btn-primary mb-10">
+          See More
+        </Link>
       </div>
     </div>
   );
