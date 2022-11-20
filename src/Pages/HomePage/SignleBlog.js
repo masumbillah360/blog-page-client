@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SignleBlog = ({ blog, num }) => {
-  const { name, picture, description } = blog;
+  const { name, picture, description, _id } = blog;
   return (
-    <div className="hero my-14">
+    <div className="hero my-14 border border-primary rounded-lg">
       <div
         className={`hero-content flex-col lg:flex-row ${
           num % 2 === 0 ? "lg:flex-row-reverse" : ""
@@ -18,7 +18,7 @@ const SignleBlog = ({ blog, num }) => {
         <div>
           <h1 className="text-5xl font-bold">{name}</h1>
           <p className="py-6">{description}</p>
-          <Link className="btn btn-primary">See Details</Link>
+          <Link to={`/blog/${_id}`} className="btn btn-secondary btn-sm">Details</Link>
         </div>
       </div>
     </div>

@@ -16,6 +16,9 @@ const HomePage = () => {
       {home.map((blog, num) => (
         <SignleBlog key={blog.price} blog={blog} num={num} />
       ))}
+      <div className="text-center">
+        <button className="btn btn-primary mb-10">See More</button>
+      </div>
     </div>
   );
 };
