@@ -1,14 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import AuthProvider from "./contexts/AuthProvider";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import {QueryClientProvider, QueryClient} from "@tanstack/react-query";
+const queryClient = new QueryClient();
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

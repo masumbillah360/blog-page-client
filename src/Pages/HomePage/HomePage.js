@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
 import SignleBlog from "./SignleBlog";
 
 const HomePage = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    fetch("fakeData.json")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
+  const { data: home = [] } = useQuery({
+    queryKey: ["home"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/homedata");
+      const data = await res.json();
+      return data;
+    },
+  });
   return (
     <div>
-      {data.map((blog, num) => (
-        <SignleBlog key={blog.price} blog={blog} num ={num} />
+      {home.map((blog, num) => (
+        <SignleBlog key={blog.price} blog={blog} num={num} />
       ))}
     </div>
   );
