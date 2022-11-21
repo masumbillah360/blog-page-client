@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import AddBlogs from "../Pages/AddBlogs/AddBlogs";
 import AllBlogs from "../Pages/AllBlogs/AllBlogs";
 import AllUsers from "../Pages/AllUsers/AllUsers";
+import DateCalender from "../Pages/Calender/Calender";
 import DetailsUsersBlog from "../Pages/DetailsUsersBlog/DetailsUsersBlog";
 import HomePage from "../Pages/HomePage/HomePage";
 import Login from "../Pages/Login/Login";
@@ -49,6 +50,7 @@ export const router = createBrowserRouter([
       },
       { path: "/allusers", element: <AllUsers /> },
       { path: "/myblogs", element: <MyBlogs /> },
+      { path: "/calender", element: <DateCalender /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <SignUp /> },
     ],

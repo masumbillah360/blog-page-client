@@ -19,6 +19,9 @@ const Navbar = () => {
             <Link to="/users-blog">User's Blogs</Link>
           </li>
           <li>
+            <Link to="/calender">Calender</Link>
+          </li>
+          <li>
             <Link to="/profile">Profile</Link>
           </li>
         </>
