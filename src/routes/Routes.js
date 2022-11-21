@@ -6,6 +6,7 @@ import HomePage from "../Pages/HomePage/HomePage";
 import Login from "../Pages/Login/Login";
 import BlogDetails from "../Pages/Shared/BlogDetails/BlogDetails";
 import SignUp from "../Pages/SignUp/SignUp";
+import UsersBlog from "../Pages/UsersBlog/UsersBlog";
 import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
@@ -26,6 +27,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <AddBlogs />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/users-blog",
+        element: (
+          <PrivateRoutes>
+            <UsersBlog />
           </PrivateRoutes>
         ),
       },
