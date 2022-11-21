@@ -45,7 +45,9 @@ const AuthProvider = ({ children }) => {
   };
   const logOut = () => {
     setLoading(true);
-    return signOut(auth);
+    return signOut(auth)
+      .then(setUser(null))
+      .catch((err) => console.log(err));
   };
   const userInfo = {
     name: "Masum",
