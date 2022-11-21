@@ -10,7 +10,7 @@ const Navbar = () => {
       <li>
         <Link to="/">Home</Link>
       </li>
-      {user.email ? (
+      {user?.email ? (
         <>
           <li>
             <Link to="/addblogs">Add Blogs</Link>
@@ -97,7 +97,7 @@ const Navbar = () => {
           >
             <li>
               <Link to="/user/profile" className="justify-between">
-                {user.displayName}
+                {user?.displayName}
               </Link>
             </li>
             <li>

@@ -6,6 +6,7 @@ import HomePage from "../Pages/HomePage/HomePage";
 import Login from "../Pages/Login/Login";
 import BlogDetails from "../Pages/Shared/BlogDetails/BlogDetails";
 import SignUp from "../Pages/SignUp/SignUp";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +21,14 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:5000/hombeblog/${params.id}`),
       },
       { path: "/allblogs", element: <AllBlogs /> },
-      { path: "/addblogs", element: <AddBlogs /> },
+      {
+        path: "/addblogs",
+        element: (
+          <PrivateRoutes>
+            <AddBlogs />
+          </PrivateRoutes>
+        ),
+      },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <SignUp /> },
     ],
