@@ -21,6 +21,7 @@ const Navbar = () => {
           <li>
             <Link to="/calender">Calender</Link>
           </li>
+
           <li>
             <Link to="/profile">Profile</Link>
           </li>
@@ -114,6 +115,9 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/allusers">All Users</Link>
+              </li>
+              <li>
+                <Link to="/my-todos">My Todos</Link>
               </li>
               <li>
                 <Link to="/user/settings">Settings</Link>

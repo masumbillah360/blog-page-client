@@ -8,6 +8,7 @@ import DetailsUsersBlog from "../Pages/DetailsUsersBlog/DetailsUsersBlog";
 import HomePage from "../Pages/HomePage/HomePage";
 import Login from "../Pages/Login/Login";
 import MyBlogs from "../Pages/MyBlogs/MyBlogs";
+import MyTodos from "../Pages/MyTodos/MyTodos";
 import BlogDetails from "../Pages/Shared/BlogDetails/BlogDetails";
 import SignUp from "../Pages/SignUp/SignUp";
 import UsersBlog from "../Pages/UsersBlog/UsersBlog";
@@ -51,6 +52,7 @@ export const router = createBrowserRouter([
       { path: "/allusers", element: <AllUsers /> },
       { path: "/myblogs", element: <MyBlogs /> },
       { path: "/calender", element: <DateCalender /> },
+      { path: "/my-todos", element: <MyTodos /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <SignUp /> },
     ],
