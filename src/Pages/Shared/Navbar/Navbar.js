@@ -110,6 +110,9 @@ const Navbar = () => {
                 <Link to="/myblogs">My Blogs</Link>
               </li>
               <li>
+                <Link to="/allusers">All Users</Link>
+              </li>
+              <li>
                 <Link to="/user/settings">Settings</Link>
               </li>
               <li>

@@ -41,12 +41,28 @@ const SignUp = () => {
               .then(() => {
                 console.log("result");
                 toast.success("Congrates for create an account");
-                navigate("/login");
+                saveUser(name, email, data.data.url);
               })
               .catch((err) => console.log(err));
             setUser(result.user);
           })
           .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
+  };
+  const saveUser = (name, email, userThumbnail) => {
+    const user = { email, name, userThumbnail, role: "Member" };
+    fetch("http://localhost:5000/user", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        navigate("/login");
       })
       .catch((err) => console.log(err));
   };

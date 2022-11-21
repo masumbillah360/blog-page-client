@@ -2,21 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useLoaderData } from "react-router-dom";
+import Spinner from "../../Components/Spinner/Spinner";
 import CommentBox from "./CommentBox";
 import UsersComments from "./UsersComments";
 
 const DetailsUsersBlog = () => {
   const data = useLoaderData();
-  const {
-    date,
-    description,
-    thumbnail,
-    title,
-    userName,
-    userThumbnail,
-    userEmail,
-    _id,
-  } = data;
+  const { date, description, thumbnail, title, userName, userThumbnail, _id } =
+    data;
   const {
     data: userComments = [],
     isLoading,
@@ -29,7 +22,9 @@ const DetailsUsersBlog = () => {
       return data;
     },
   });
-
+  if (isLoading) {
+    return <Spinner />;
+  }
   return (
     <PhotoProvider>
       <div className="px-2 md:p-0">
