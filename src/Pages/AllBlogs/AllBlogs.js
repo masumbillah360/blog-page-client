@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import Spinner from "../../Components/Spinner/Spinner";
 import SignleBlog from "../HomePage/SignleBlog";
 
 const AllBlogs = () => {
@@ -13,7 +14,7 @@ const AllBlogs = () => {
   });
 
   if (isLoading) {
-    return <h1 className="text-center font-bold text-5xl">Loading....</h1>;
+    return <Spinner />;
   }
 
   return (

@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Navbar = () => {
-  const { userInfo } = useContext(AuthContext);
-  console.log(userInfo);
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const navLink = (
     <>
       <li>
         <Link to="/">Home</Link>
       </li>
-      {userInfo.email ? (
+      {user.email ? (
         <>
           <li>
             <Link to="/addblogs">Add Blogs</Link>
@@ -97,7 +97,7 @@ const Navbar = () => {
           >
             <li>
               <Link to="/user/profile" className="justify-between">
-                {userInfo.name}
+                {user.displayName}
               </Link>
             </li>
             <li>

@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Link } from "react-router-dom";
+import Spinner from "../../Components/Spinner/Spinner";
 import SignleBlog from "./SignleBlog";
 
 const HomePage = () => {
-  const { data: home = [] } = useQuery({
+  const { data: home = [], isLoading } = useQuery({
     queryKey: ["home"],
     queryFn: async () => {
       const res = await fetch("http://localhost:5000/homedata");
@@ -12,6 +13,9 @@ const HomePage = () => {
       return data;
     },
   });
+  if (isLoading) {
+    return <Spinner />;
+  }
   return (
     <div>
       {home.map((blog, num) => (
