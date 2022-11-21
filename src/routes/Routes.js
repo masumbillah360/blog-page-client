@@ -4,6 +4,7 @@ import AddBlogs from "../Pages/AddBlogs/AddBlogs";
 import AllBlogs from "../Pages/AllBlogs/AllBlogs";
 import HomePage from "../Pages/HomePage/HomePage";
 import Login from "../Pages/Login/Login";
+import MyBlogs from "../Pages/MyBlogs/MyBlogs";
 import BlogDetails from "../Pages/Shared/BlogDetails/BlogDetails";
 import SignUp from "../Pages/SignUp/SignUp";
 import UsersBlog from "../Pages/UsersBlog/UsersBlog";
@@ -38,6 +39,7 @@ export const router = createBrowserRouter([
           </PrivateRoutes>
         ),
       },
+      { path: "/myblogs", element: <MyBlogs /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <SignUp /> },
     ],

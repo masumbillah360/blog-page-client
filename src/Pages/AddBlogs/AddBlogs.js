@@ -1,32 +1,63 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import Spinner from "../../Components/Spinner/Spinner";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const AddBlogs = () => {
   const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const formData = new FormData();
   const date = new Date();
-  const handleBlogs = (data) => {
+  const formData = new FormData();
+  const handleBlogs = (blogData) => {
     const postDate = date.toDateString();
-    const thumbnail = data?.thumbnail[0];
-    formData.append("thumbnail", thumbnail);
-    const blogData = {
-      userName: user.displayName,
-      userEmail: user.email,
-      userThumbnail: user.photoURL,
-      date: postDate,
-      time: date.getTime(),
-      title: data.title,
-      description: data.description,
-      thumbnail: thumbnail,
-    };
-    console.log(blogData);
+    const blogThumbnail = blogData.thumbnail[0];
+    formData.append("image", blogThumbnail);
+    setLoading(true);
+    fetch(
+      "https://api.imgbb.com/1/upload?key=41136a0a245dfdbc419be792c0876eea",
+      {
+        method: "POST",
+        body: formData,
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const blogPost = {
+          userName: user.displayName,
+          userEmail: user.email,
+          userThumbnail: user.photoURL,
+          date: postDate,
+          time: date.getTime(),
+          title: blogData.title,
+          description: blogData.description,
+          thumbnail: data.data.url,
+        };
+        fetch("http://localhost:5000/users-bolg", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(blogPost),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            console.log(blogPost);
+            setLoading(false);
+            navigate("/myblogs");
+          });
+      });
   };
+  if (loading) {
+    return <Spinner />;
+  }
   return (
     <div>
       <h1 className="text-xl font-bold text-center">Add Your Blogs</h1>
