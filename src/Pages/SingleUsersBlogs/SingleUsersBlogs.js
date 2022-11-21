@@ -2,7 +2,7 @@ import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
 
-const DetailsusersBlog = ({ blog, num }) => {
+const SingleUsersBlogs = ({ blog, num }) => {
   const { thumbnail, title, description, _id } = blog;
   return (
     <PhotoProvider>
@@ -34,7 +34,10 @@ const DetailsusersBlog = ({ blog, num }) => {
                 <span>{description}</span>
               )}
             </p>
-            <Link to={`/blog/${_id}`} className="btn btn-secondary btn-sm">
+            <Link
+              to={`/users-blogs/${_id}`}
+              className="btn btn-secondary btn-sm"
+            >
               Details
             </Link>
           </div>
@@ -44,4 +47,4 @@ const DetailsusersBlog = ({ blog, num }) => {
   );
 };
 
-export default DetailsusersBlog;
+export default SingleUsersBlogs;

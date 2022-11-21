@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import Spinner from "../../Components/Spinner/Spinner";
 import { AuthContext } from "../../contexts/AuthProvider";
-import DetailsusersBlog from "../DetailsUsersBlog/DetailsusersBlog";
+import SingleUsersBlogs from "../SingleUsersBlogs/SingleUsersBlogs";
 
 const MyBlogs = () => {
   const { user } = useContext(AuthContext);
@@ -21,7 +21,7 @@ const MyBlogs = () => {
   return (
     <div>
       {myBlogs.map((blog, num) => (
-        <DetailsusersBlog num={num} blog={blog} key={blog._id} />
+        <SingleUsersBlogs num={num} blog={blog} key={blog._id} />
       ))}
     </div>
   );

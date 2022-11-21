@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import AddBlogs from "../Pages/AddBlogs/AddBlogs";
 import AllBlogs from "../Pages/AllBlogs/AllBlogs";
+import DetailsUsersBlog from "../Pages/DetailsUsersBlog/DetailsUsersBlog";
 import HomePage from "../Pages/HomePage/HomePage";
 import Login from "../Pages/Login/Login";
 import MyBlogs from "../Pages/MyBlogs/MyBlogs";
@@ -38,6 +39,12 @@ export const router = createBrowserRouter([
             <UsersBlog />
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/users-blogs/:id",
+        element: <DetailsUsersBlog />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/users-blog/${params.id}`),
       },
       { path: "/myblogs", element: <MyBlogs /> },
       { path: "/login", element: <Login /> },
