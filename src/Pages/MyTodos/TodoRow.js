@@ -9,15 +9,18 @@ const TodoRow = ({ todo, refetch }) => {
   };
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/todos/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        refetch();
+    const confirm = window.confirm("Do you want to delete this?");
+    if (confirm) {
+      fetch(`http://localhost:5000/todos/${id}`, {
+        method: "DELETE",
       })
-      .catch((err) => console.log(err));
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          refetch();
+        })
+        .catch((err) => console.log(err));
+    }
   };
   return (
     <>

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { FaCrown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
@@ -73,6 +74,13 @@ const Navbar = () => {
         <ul className="menu menu-horizontal p-0">{navLink}</ul>
       </div>
       <div className="navbar-end">
+        <Link
+          to="/premium"
+          className="tooltip tooltip-left"
+          data-tip="Get Primium Access"
+        >
+          <FaCrown className="text-2xl text-warning mr-2 rounded-full ring ring-warning ring-offset-base-100 ring-offset-2" />
+        </Link>
         <button className="btn btn-ghost btn-circle">
           <div className="indicator">
             <svg
