@@ -6,7 +6,7 @@ import TodoRow from "./TodoRow";
 const MyTodos = () => {
   const { user } = useContext(AuthContext);
   const email = user?.email;
-  const { data: todoTask = [] } = useQuery({
+  const { data: todoTask = [], refetch } = useQuery({
     queryKey: ["todoTask", email],
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/todos?email=${email}`);
@@ -29,7 +29,7 @@ const MyTodos = () => {
           </thead>
           <tbody>
             {todoTask.map((todo, num) => (
-              <TodoRow key={todo._id} todo={todo} num={num} />
+              <TodoRow key={todo._id} todo={todo} num={num} refetch={refetch} />
             ))}
           </tbody>
         </table>

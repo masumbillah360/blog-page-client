@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const DateCalender = () => {
@@ -30,8 +31,14 @@ const DateCalender = () => {
       body: JSON.stringify(todoTask),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
+      .then((data) => {
+        console.log(data);
+        toast.success(`${todoTask.todoName} <-added successfully`);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.message);
+      });
   };
   const handleDay = (value, event) => {
     console.log(value);
